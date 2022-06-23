@@ -1,3 +1,12 @@
+# Ruby on Rails
+
+## Versiones Utilizadas
+
+- JRuby 9.3.4 
+- Ruby on Rails 6.1.6
+
+## Ejemplo
+
 1) Iniciar el proyecto 
 ```bash
 jruby -S rails new catalogo --database=mysql 

@@ -25,21 +25,27 @@ end
 
 5) Comando scaffold para generar Modelo, Vistas, Rutas, Controladores, Migraciones, Pruebas Unitarias, Helpers (métodos de ayuda ej. generación de enlaces), CSS, etc
 
+```bash
 jruby -S rails generate scaffold Categoria nombre 
 
 jruby -S rails generate scaffold Producto nombre descripcion precio:integer categoria:references 
+```
 
-6) Afinar los archivos de migración a nuestro gusto (NOT NULL) 
+6) Afinar los archivos de migración a nuestro gusto (ej. NOT NULL) 
 
 7) Ejecutar migración (para que se realicen los cambios en la BD) 
 
+```bash
 jruby -S rails db:migrate 
+```
 
 8) Opcionalmente, iterar para corregir algo deseado (ej. se me olvidó configurar un NOT NULL): 
 
+```bash
 jruby -S rails db:drop 
 jruby -S rails db:create 
 jruby -S rails db:migrate  
+```
 
 9) Probar el código que generó el scaffold 
 

@@ -1,21 +1,27 @@
 1) Iniciar el proyecto 
+```bash
 jruby -S rails new catalogo --database=mysql 
+```
 
-2) Configurar credencias Base de Datos en archivo config/database.yml 
+2) Configurar credencias Base de Datos en archivo *config/database.yml*
 
 3) Crear bases de datos
+```bash
 cd nombre-mi-proyecto 
 jruby -S rails db:create 
+```
 
 4) Configurar los nombres de nuestras entidades para que Rails entienda como generar el código (plural y singular): 
 
-archivo: config/initializers/inflections.rb 
+*archivo: config/initializers/inflections.rb*
 
+```ruby
 ActiveSupport::Inflector.inflections(:en) do |inflect|  
     #inflect.irregular 'singular', 'plural'
     inflect.irregular 'categoria', 'categorias'
     inflect.irregular 'producto', 'productos'
 end
+```
 
 5) Comando scaffold para generar Modelo, Vistas, Rutas, Controladores, Migraciones, Pruebas Unitarias, Helpers (métodos de ayuda ej. generación de enlaces), CSS, etc
 

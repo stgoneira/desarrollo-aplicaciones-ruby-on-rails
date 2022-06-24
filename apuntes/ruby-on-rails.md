@@ -40,7 +40,21 @@ jruby -S rails generate scaffold Categoria nombre
 jruby -S rails generate scaffold Producto nombre descripcion precio:integer categoria:references 
 ```
 
-6) Afinar los archivos de migración a nuestro gusto (ej. NOT NULL) 
+**Más info:**: https://guides.rubyonrails.org/v3.2/migrations.html#supported-types 
+
+6) Afinar los archivos de migración a nuestro gusto. Ejemplo configurar **NOT NULL** para el **nombre** de las **categorías** en el archivo **db/migrate/20220624154000_create_categorias.rb**
+
+```ruby
+class CreateCategorias < ActiveRecord::Migration[6.1]
+  def change
+    create_table :categorias do |t|
+      t.string :nombre, null: false
+
+      t.timestamps
+    end
+  end
+end
+```
 
 7) Ejecutar migración (para que se realicen los cambios en la BD) 
 

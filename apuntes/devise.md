@@ -1,5 +1,7 @@
 # Devise Gem
 
+https://github.com/heartcombo/devise#getting-started
+
 ## Gemfile
 
 ```
@@ -48,3 +50,5 @@ In production, :host should be set to the actual host of your application.
 ```bash
 jruby -S rails generate devise:views
 ```
+
+

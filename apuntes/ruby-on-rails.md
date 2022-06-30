@@ -2,8 +2,12 @@
 
 ## Versiones Utilizadas
 
-- JRuby 9.3.4 
+- JRuby 9.3.6
 - Ruby on Rails 6.1.6
+
+```bash
+jruby -S gem install rails -v 6.1.6
+```
 
 ## Ejemplo
 

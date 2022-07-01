@@ -1,0 +1,38 @@
+table categorias {
+  id integer 
+  nombre varchar(50)
+}
+
+table productos {
+  id integer [pk]
+  nombre varchar(50)
+  precio double
+  categoria_id integer
+}
+
+table usuarios {
+  id integer [pk]
+  rut char(10) [not null, unique]
+  nombre varchar(100) [not null]
+}
+
+table pedidos {
+  id integer [pk]
+  usuario_id integer
+  fecha datetime
+}
+
+table pedido_detalles {
+  pedido_id intenger
+  producto_id integer
+  cantidad integer 
+  
+  indexes {
+    (pedido_id, producto_id) [pk]
+  }
+}
+
+ref: categorias.id < productos.categoria_id
+ref: pedidos.id < pedido_detalles.pedido_id
+ref: productos.id < pedido_detalles.producto_id
+ref: usuarios.id < pedidos.usuario_id

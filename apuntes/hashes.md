@@ -16,7 +16,7 @@ También pueden ser símbolos:
 # Hashes en métodos 
 
 ```ruby
-def my(params)     # retorna el símbolo      :my
+def my(params)     # retorna el símbolo    :my
   puts params
 end
 

@@ -4,7 +4,7 @@
 
 La clave puede ser cualquier tipo de objeto:
 ```ruby
-=> {"uno"=>1, "dos"=>2}
+{"uno"=>1, "dos"=>2}
 ```
 
 También pueden ser símbolos:

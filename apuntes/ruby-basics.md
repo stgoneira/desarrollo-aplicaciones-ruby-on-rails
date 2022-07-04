@@ -26,7 +26,7 @@ end
 
 ## Classes
 
-```ruby[] 
+```ruby
 # SINTAXIS 
 class NombreClase 
 	# constructor 

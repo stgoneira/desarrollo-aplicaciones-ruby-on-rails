@@ -130,5 +130,22 @@ end
 ```bash
 jruby -S rails g devise Administrador 
 jruby -S rails g devise Empresa 
-jruby -S rails g devise Licitante 
+jruby -S rails g devise Licitante  
+```
+
+
+## Crea los modelos 
+
+Ref: https://guides.rubyonrails.org/v3.2/migrations.html#supported-types
+
+```bash
+rails g model Categoria nombre
+rails g model Licitacion titulo descripcion presupuesto:integer categoria:references licitante:references
+rails g model Postulacion propuesta empresa:references licitacion:references 
+```
+
+### perfecciona los modelos 
+
+```ruby
+
 ```

@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  titulo: MyString
+  descripcion: MyString
+  presupuesto: 1
+  categoria: one
+  licitante: one
+
+two:
+  titulo: MyString
+  descripcion: MyString
+  presupuesto: 1
+  categoria: two
+  licitante: two

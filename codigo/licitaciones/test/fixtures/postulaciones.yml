@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  propuesta: MyString
+  empresa: one
+  licitacion: one
+
+two:
+  propuesta: MyString
+  empresa: two
+  licitacion: two

@@ -2,7 +2,11 @@
 
 class DeviseCreateLicitantes < ActiveRecord::Migration[6.1]
   def change
-    create_table :licitantes do |t|
+    create_table :licitantes do |t|      
+      # custom
+      t.string :razon_social, null: false 
+      t.string :rut, null: false 
+
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -36,6 +40,7 @@ class DeviseCreateLicitantes < ActiveRecord::Migration[6.1]
       t.timestamps null: false
     end
 
+    add_index :licitantes, :rut,                  unique: true
     add_index :licitantes, :email,                unique: true
     add_index :licitantes, :reset_password_token, unique: true
     # add_index :licitantes, :confirmation_token,   unique: true

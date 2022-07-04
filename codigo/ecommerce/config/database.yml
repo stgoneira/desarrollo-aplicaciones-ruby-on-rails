@@ -13,7 +13,7 @@ default: &default
   adapter: mysql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password:
+  password: Fedora2022
   host: localhost
 
 development:

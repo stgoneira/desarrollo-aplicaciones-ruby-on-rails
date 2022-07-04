@@ -1,4 +1,4 @@
-class ProductosController < ApplicationController
+class ProductosController < AdminController
   before_action :set_producto, only: %i[ show edit update destroy ]
 
   # GET /productos or /productos.json

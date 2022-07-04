@@ -1,19 +1,28 @@
 # Caso Licitaciones
 
+## Recomendaciones Generales 
+
+- Trabajar en repositorio Github 
+
 ## Modelo Conceptual
 
 ```mermaid
 classDiagram
     Categoria "1" -- "*" Licitacion
     Licitacion "1" -- "*" Postulacion
-    Licitador "1" -- "*" Licitacion 
+    Licitante "1" -- "*" Licitacion 
     Empresa "1" -- "*" Postulacion
 
+    class Administrador {
+        Long id 
+        String email 
+        String password 
+    }
     class Categoria {
         Long id 
         String nombre 
     }
-    class Licitador {
+    class Licitante {
         Long id 
         String razonSocial
         String rut 
@@ -39,5 +48,87 @@ classDiagram
     }  
 ```
 
+## Iniciar proyecto 
 
+```bash
+jruby -S rails new licitaciones --database=mysql 
+cd licitaciones 
+jruby -S rails db:create 
+```
 
+## Iniciar servidor 
+
+```bash
+jruby -S rails server 
+```
+
+## Devise 
+
+Edita el **Gemfile**:
+``` 
+gem 'devise', '~> 4.8', '>= 4.8.1'
+```
+
+### instala usando **bundle**
+```bash
+jruby -S bundle install 
+```
+
+### instala los archivos en el proyecto con **generate**:
+```bash
+ruby -S rails generate devise:install
+```
+
+### configura devise
+
+**config/environments/development.rb**:
+```ruby
+config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+```
+
+### asegúrate de tener configurada una ruta raíz
+
+Define la ruta raíz (**root**)
+```ruby
+Rails.application.routes.draw do
+  root to: "sites#index"
+end
+```
+
+### edita el layout 
+
+**app/views/layouts/application.html.erb**:
+```erb
+...
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+...
+```
+
+### genera las vistas de **devise** para poder personalizar:
+
+```bash
+jruby -S rails generate devise:views
+```
+
+### Configura inflections si trabajas en **español**:
+
+**config/initializers/inflections.rb**:
+```ruby
+ActiveSupport::Inflector.inflections(:en) do |inflect|
+  inflect.irregular 'administrador', 'administradores'
+  inflect.irregular 'categoria', 'categorias'
+  inflect.irregular 'licitante', 'licitantes'
+  inflect.irregular 'licitacion', 'licitaciones'
+  inflect.irregular 'empresa', 'empresas'
+  inflect.irregular 'postulacion', 'postulaciones'
+end
+```
+
+### Genera los modelos que podrán autenticarse
+
+```bash
+jruby -S rails g devise Administrador 
+jruby -S rails g devise Empresa 
+jruby -S rails g devise Licitante 
+```

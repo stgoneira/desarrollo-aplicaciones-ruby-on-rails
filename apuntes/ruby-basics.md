@@ -45,4 +45,13 @@ end
 ``` 
 
 
+## Otros
+
+```ruby
+arr=["uno", "dos", "tres"]
+
+# convierte cada elemento a MAYUSCULAS
+arr.map { |e| e.upcase } # => ["UNO", "DOS", "TRES"]
+arr.map(&:upcase) # lo mismo, pero abreviado
+```
 

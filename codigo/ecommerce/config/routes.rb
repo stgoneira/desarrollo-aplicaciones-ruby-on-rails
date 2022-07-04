@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  root to: "sitio#index"
+
+  get "/instalacion", to: "sitio#install"
+
   devise_for :usuarios
-  root to: "sitio#index"  
 
   scope 'admin' do 
     resources :categorias

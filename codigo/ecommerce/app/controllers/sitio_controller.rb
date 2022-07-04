@@ -6,4 +6,9 @@ class SitioController < ApplicationController
     render 'inicio'
   end 
 
+  def install 
+    Usuario.new(email: "juan@123.cl", password: "123456").save
+    render plain: "Instalación realizada"
+  end
+
 end 

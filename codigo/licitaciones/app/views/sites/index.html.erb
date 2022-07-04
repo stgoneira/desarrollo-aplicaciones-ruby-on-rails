@@ -1,1 +1,6 @@
 <h1>Hola Mundo</h1>
+
+<%= form_with url: "/search", method: :post do |form| %>
+    <%= form.label :q, "Buscar" %>
+    <%= form.text_field :q %>
+<% end %>

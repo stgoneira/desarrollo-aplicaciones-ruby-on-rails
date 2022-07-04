@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :administradores
   root to: "sitio#index"
 
   get "/instalacion", to: "sitio#install"

@@ -59,4 +59,24 @@ jruby -S rails g devise Usuario
 
 6. Restart the rails server 
 
+7. Appy security on controllers. Replace with model name (ex: **_usuario**)
+
+```ruby
+class CategoriasController < ApplicationController
+  before_action :authenticate_usuario!
+  
+  # methods ....
+end 
+```
+
+8. Customize the views:
+
+```erb
+<% if usuario_signed_in? then %>
+  Bienvenido <%= current_usuario&.email %><br />
+  <%= link_to "Salir", :destroy_usuario_session, method: :delete %>
+<% else %>
+  <%= link_to "Ingresar", :new_usuario_session %>
+<% end %>
+```
 

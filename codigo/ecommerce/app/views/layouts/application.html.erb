@@ -14,7 +14,7 @@
     <p class="alert"><%= alert %></p>
 
     <% if usuario_signed_in? then %>
-      <%= current_usuario&.email %>
+      Bienvenido <%= current_usuario&.email %><br />
       <%= link_to "Salir", :destroy_usuario_session, method: :delete %>
     <% else %>
       <%= link_to "Ingresar", :new_usuario_session %>

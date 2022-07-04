@@ -20,3 +20,29 @@ class TarjetaCredito
 
 end 
 ```
+
+## Methods
+
+
+## Classes
+
+```ruby[] 
+# SINTAXIS 
+class NombreClase 
+	# constructor 
+	def initialize(arg1, arg2)
+		# variables instancia 
+		# sintaxis con @
+		@arg1 = arg1 
+		@arg2 = arg2 		
+	end 
+
+	# definicion de métodos
+	def nombreMetodo(arg1)
+		# código ruby 
+	end 
+end 
+``` 
+
+
+

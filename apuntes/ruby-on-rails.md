@@ -77,5 +77,9 @@ jruby -S rails db:migrate
 9) Probar el código que generó el scaffold 
 
 
+## Instalar Webpacker
 
+```bash
+jruby -S rails webpacker:install
+```
  

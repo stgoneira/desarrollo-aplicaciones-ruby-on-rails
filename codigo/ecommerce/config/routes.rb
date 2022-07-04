@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :usuarios
   root to: "sitio#index"  
 
   scope 'admin' do 

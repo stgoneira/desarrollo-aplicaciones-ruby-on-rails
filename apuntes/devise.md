@@ -51,4 +51,12 @@ In production, :host should be set to the actual host of your application.
 jruby -S rails generate devise:views
 ```
 
+5. Generate Devise Model
+
+```bash
+jruby -S rails g devise Usuario
+```
+
+6. Restart the rails server 
+
 

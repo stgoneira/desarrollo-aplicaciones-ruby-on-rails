@@ -9,6 +9,7 @@
 ```mermaid
 classDiagram
     Categoria "1" -- "*" Licitacion
+    Region "1" -- "*" Licitacion
     Licitacion "1" -- "*" Postulacion
     Licitante "1" -- "*" Licitacion 
     Empresa "1" -- "*" Postulacion
@@ -22,6 +23,10 @@ classDiagram
         Long id 
         String nombre 
     }
+    class Region {
+        Long id 
+        String nombre 
+    }
     class Licitante {
         Long id 
         String razonSocial
@@ -31,7 +36,7 @@ classDiagram
     }
     class Licitacion {
         Long id 
-        String titulo 
+        String titulo
         Double presupuesto 
         String descripcion 
     }
@@ -46,6 +51,56 @@ classDiagram
         Date fecha 
         String propuesta 
     }  
+```
+
+## Modelo Entidad Relación
+
+```mermaid
+erDiagram    
+    administradores {
+        int id PK
+        varchar email 
+        varchar password 
+    }
+    regiones {
+        int id PK
+        varchar nombre 
+    }
+    categorias {
+        int id PK
+        varchar nombre 
+    }
+    licitantes {
+        int id PK
+        char rut 
+        varchar razon_social
+        varchar email 
+        varchar password
+    }
+    empresas {
+        int id PK
+        char rut 
+        varchar razon_social
+        varchar email 
+        varchar password
+    }
+    licitaciones {
+        int id PK    
+        varchar titulo 
+        text descripcion
+        double presupuesto 
+        char estado 
+    }
+    postulaciones {
+        int id PK 
+        datetime fecha
+        varchar propuesta
+    }
+    regiones ||--o{ licitaciones : ""
+    categorias ||--o{ licitaciones : ""
+    licitantes ||--o{ licitaciones : ""
+    licitaciones ||--o{ postulaciones : ""
+    empresas ||--o{ postulaciones : ""
 ```
 
 ## Iniciar proyecto 

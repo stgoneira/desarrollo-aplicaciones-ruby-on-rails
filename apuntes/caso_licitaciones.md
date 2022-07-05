@@ -131,7 +131,7 @@ jruby -S bundle install
 
 ### instala los archivos en el proyecto con **generate**:
 ```bash
-ruby -S rails generate devise:install
+jruby -S rails generate devise:install
 ```
 
 ### configura devise
@@ -195,8 +195,9 @@ jruby -S rails g devise Licitante
 Ref: https://guides.rubyonrails.org/v3.2/migrations.html#supported-types
 
 ```bash
+rails g model Region nombre
 rails g model Categoria nombre
-rails g model Licitacion titulo descripcion presupuesto:integer categoria:references licitante:references
+rails g model Licitacion titulo descripcion presupuesto:integer categoria:references licitante:references region:references 
 rails g model Postulacion propuesta empresa:references licitacion:references 
 ```
 
@@ -205,3 +206,31 @@ rails g model Postulacion propuesta empresa:references licitacion:references
 ```ruby
 
 ```
+
+## datos iniciales 
+
+**db/seeds.rb**:
+
+```ruby
+# https://www.bcn.cl/siit/nuestropais/regiones
+Region.create([
+    {nombre: "Región de Arica y Parinacota"},
+    {nombre: "Región de Tarapacá"},
+    {nombre: "Región de Antofagasta"},
+    {nombre: "Región de Atacama"},
+    {nombre: "Región de Coquimbo"},
+    {nombre: "Región de Valparaíso"},
+    {nombre: "Región del Libertador General Bernardo OHiggins"},
+    {nombre: "Región del Maule"},
+    {nombre: "Región del Ñuble"},
+    {nombre: "Región del Biobío"},
+    {nombre: "Región de La Araucanía"},
+    {nombre: "Región de Los Ríos"},
+    {nombre: "Región de Los Lagos"},
+    {nombre: "Región de Aysén del G. Carlos Ibañez del Campo"},
+    {nombre: "Región de Magallanes y de la Antártica Chilena"},
+    {nombre: "Región Metropolitana de Santiago"},
+])
+```
+
+

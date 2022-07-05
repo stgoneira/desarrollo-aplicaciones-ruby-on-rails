@@ -143,7 +143,11 @@ config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
 ### asegúrate de tener configurada una ruta raíz
 
-Define la ruta raíz (**root**)
+```bash
+jruby -S rails g controller Sites index
+```
+
+**conf/routes.rb**:
 ```ruby
 Rails.application.routes.draw do
   root to: "sites#index"
@@ -201,13 +205,61 @@ rails g model Licitacion titulo descripcion presupuesto:integer categoria:refere
 rails g model Postulacion propuesta empresa:references licitacion:references 
 ```
 
-### perfecciona los modelos 
+### perfecciona los modelos y migraciones 
 
 ```ruby
+class DeviseCreateLicitantes < ActiveRecord::Migration[6.1]
+  def change
+    create_table :licitantes do |t|
+        t.string :rut, null: false
+        t.string :razon_social, null: false
+        # ... código autogenerado
+    end
 
+    add_index :licitantes, :rut, unique: true
+    # ... código autogenerado
+  end 
+end
+
+class DeviseCreateEmpresas < ActiveRecord::Migration[6.1]
+  def change
+    create_table :empresas do |t|
+      t.string :rut, null: false
+      t.string :razon_social, null: false
+      # ... código autogenerado      
+    end
+    add_index :licitantes, :rut, unique: true
+    # ... código autogenerado
+  end
+end
+
+class CreateLicitaciones < ActiveRecord::Migration[6.1]
+  def change
+    create_table :licitaciones do |t|
+      t.string :titulo, null: false 
+      t.string :descripcion, null: false
+      t.integer :presupuesto, null: false
+      t.references :categoria, null: false, foreign_key: true
+      t.references :licitante, null: false, foreign_key: true
+      t.references :region, null: false, foreign_key: true
+      t.timestamps
+    end
+  end
+end
+
+class CreatePostulaciones < ActiveRecord::Migration[6.1]
+  def change
+    create_table :postulaciones do |t|
+      t.string :propuesta, null: false
+      t.references :empresa, null: false, foreign_key: true
+      t.references :licitacion, null: false, foreign_key: true
+      t.timestamps
+    end
+  end
+end
 ```
 
-## datos iniciales 
+### datos iniciales 
 
 **db/seeds.rb**:
 
@@ -234,3 +286,37 @@ Region.create([
 ```
 
 
+### revisa, corrige y vuelve a revisar 
+
+```bash
+rails db:create # crea la base de datos 
+rails db:migrate 
+rails db:seed # carga datos iniciales 
+
+rails db:drop # borra la base de datos
+```
+
+## Agrega Bootstrap
+
+```bash
+yarn add bootstrap@5.2.0-beta1
+yarn add @popperjs/core
+```
+
+**app/javascript/packs/application.js**:
+```js
+...
+import "bootstrap"
+...
+```
+
+Si la extensión es **.css**, renómbrala a **.scss**
+
+**app/assets/stylesheets/application.scss**:
+```scss
+...
+@import "bootstrap/scss/bootstrap.scss";
+...
+```
+
+## Scaffolding

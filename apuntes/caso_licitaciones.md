@@ -2,7 +2,7 @@
 
 ## Recomendaciones Generales 
 
-- Trabajar en repositorio Github 
+- Trabajar en repositorio Github (si está en Windows usar HTTPS en vez de SSH)
 
 ## Modelo Conceptual
 

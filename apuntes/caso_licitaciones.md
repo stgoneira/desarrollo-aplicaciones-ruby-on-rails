@@ -228,7 +228,7 @@ class DeviseCreateEmpresas < ActiveRecord::Migration[6.1]
       t.string :razon_social, null: false
       # ... código autogenerado      
     end
-    add_index :licitantes, :rut, unique: true
+    add_index :empresas, :rut, unique: true
     # ... código autogenerado
   end
 end
